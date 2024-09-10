@@ -8,6 +8,9 @@ import re
 # Output: true
 # Explanation: "amanaplanacanalpanama" is a palindrome.
 
+# Email checker:
+# checks if the email entered is correct by matching the corresponding regex
+
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
@@ -18,6 +21,14 @@ class Solution:
         else:
             return False
 
+    def emailCheck(self, s: str) -> bool:
+        emailRegex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z]+\.[a-zA-Z0-9-.]+$'
+        if (re.match(emailRegex, s)):
+            return True
+        else:
+            return False
+
 
 s = Solution()
-print(s.isPalindrome('A man, a plan, a canal: Panamb'))
+print(s.isPalindrome('A man, a plan, a canal: Panama'))
+print(s.emailCheck('name@domaincom'))

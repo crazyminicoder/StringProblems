@@ -30,7 +30,8 @@ class Solution:
 
     def passwordChecker(self, s: str) -> bool:
         # A good password is atleast 8 character long, upper and lower case letters, numbers and special characters
-        passRegex = r'^.{7,}[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]+$'
+        # passRegex = r'^.{7,}[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]+$'
+        passRegex = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$'
         if re.match(passRegex, s):
             return True
         else:
@@ -40,7 +41,7 @@ class Solution:
 s = Solution()
 print(s.isPalindrome('A man, a plan, a canal: Panama'))
 print(s.emailCheck('name@domaincom'))
-res = s.passwordChecker('Qwe@1240')
+res = s.passwordChecker('Qwe$120')
 if res:
     print("Valid Password")
 else:

@@ -37,6 +37,14 @@ class Solution:
         else:
             return False
 
+    def phoneNumberChecker(self, s: str) -> bool:
+        phoneRegex = r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}'
+
+        if re.match(phoneRegex, s):
+            return True
+        else:
+            return False
+
 
 s = Solution()
 print(s.isPalindrome('A man, a plan, a canal: Panama'))
@@ -46,3 +54,9 @@ if res:
     print("Valid Password")
 else:
     print("Invalid Password")
+
+res2 = s.phoneNumberChecker('773-098-5678')
+if res2:
+    print("Valid Phone Number")
+else:
+    print("Invalid Phone Number")
